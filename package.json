@@ -1,5 +1,5 @@
 {
-  "name": "prefect-test-hosted",
+  "name": "self-hosted-prefectio",
   "version": "0.1.0",
   "bin": {
     "prefect-test-hosted": "bin/prefect-test-hosted.js"
