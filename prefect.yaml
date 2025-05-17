@@ -1,0 +1,7 @@
+name: example-deployment-config
+
+deployments:
+  - name: example-deployment-to-work-pool
+    entrypoint: flows/example.py:example
+    work_pool:
+      name: example-work-pool
