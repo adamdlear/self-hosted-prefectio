@@ -4,6 +4,9 @@ import { ContainerImage } from "aws-cdk-lib/aws-ecs";
 import { ApplicationLoadBalancedFargateService } from "aws-cdk-lib/aws-ecs-patterns";
 import * as iam from "aws-cdk-lib/aws-iam";
 import { Construct } from "constructs";
+import * as dotenv from "dotenv";
+
+dotenv.config();
 
 export class PrefectTestHostedStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
@@ -40,6 +43,8 @@ export class PrefectTestHostedStack extends cdk.Stack {
           containerName: "prefect-service",
           environment: {
             PREFECT_SERVER_API_HOST: "0.0.0.0",
+            PREFECT_SERVER_API_AUTH_STRING:
+              process.env.PREFECT_SERVER_API_AUTH_STRING!,
           },
           command: [
             "prefect",
